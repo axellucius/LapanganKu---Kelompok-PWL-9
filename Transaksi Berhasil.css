@@ -1,101 +1,106 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-   font-family: 'Inter', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background: #fff;
-    color: #333;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.logo span {
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 3px;
-}   
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #1c5c2e;
-  padding: 15px 40px;
-  color: white;
-}
-
-.nav-fitur {
-  list-style: none;
-  display: flex;
-  gap: 130px;
-}
-
-.nav-fitur li a {
-  text-decoration: none;
-  color: white;
-}
-
-.nav-fitur li a:hover {
-  font-weight: bold;
-  padding-bottom: 2px;
-}
-
-.tombol-history {
-  border: 1px solid white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  background: transparent;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #fff;
+	color: #333;
+	line-height: 1.6;
 }
 
 .container {
-    width: 500px;
-    margin-left: 450px;
-    background: white;
-    border-radius: 15px;
-    padding: 40px 30px;
-    margin-top: 100px;
-    text-align: center;
-    transform: scale(1.3)
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+header {
+	background-color: #1e4620;
+	padding: 15px 0;
+	color: #fff;
+}
+
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+}
+
+nav a {
+	color: #d9ead3;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 7px 10px;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+	background-color: #3a5527;
+}
+
+.btn-history {
+	background-color: #d9ead3;
+	color: #1e4620 !important;
+	font-weight: 700;
+}
+
+
+.container1 {
+  width: 500px;
+  margin-left: 420px;
+  background: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  margin-top: 100px;
+  text-align: center;
+  transform: scale(1.3)
 }
 
 .checkmark {
-    font-size: 64px;
-    color: #2f7a48;
-    margin-bottom: 30px;
+  font-size: 64px;
+  color: #2f7a48;
+  margin-bottom: 30px;
 }
 
 h1 {
-    margin: 0 0 10px;
-    text-align: center;
+  margin: 0 0 10px;
+  text-align: center;
 }
 
 p {
-    font-size: 16px;
-    color: #555;
-    margin: 0 0 30px;
-    text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin: 0 0 30px;
+  text-align: center;
 }
 
 a.button-homepage {
-    text-decoration: none;
-    background: #2f7a48;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: background 0.3s;
+  text-decoration: none;
+  background: #2f7a48;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 a.button-homepage:hover {
-    background: #225c31;
+  background: #225c31;
 }
 
 

@@ -1,26 +1,174 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LapanganKu</title>
-    <link rel="stylesheet" href="homepage.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking Lapangan</title>
+  <link rel="stylesheet" href="homepage.css"/>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-        <div class="logo">Lapangan<span>Ku</span></div>
-        <ul class="nav-fitur">
-            <li><a href="">Home</a></li>
-            <li><a href="">Lapangan</a></li>
-            <li><a href="">Harga</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="" class="active">Login</a></li>
-      </ul>
-      <a href="" class="tombol-history">History Pemesanan</a>
-    </nav>
-    </header>
-</body>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">LapanganKu</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Lapangan</a></li>
+          <li><a href="#">Harga</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Daftar</a></li>
+          <li><a href="#" class="btn-history">History Pemesanan</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Booking Lapangan Olahraga Favoritmu dalam Hitungan Menit</h1>
+        <p>Basket &nbsp;&bull;&nbsp; Futsal &nbsp;&bull;&nbsp; Badminton</p>
+        <form class="search-form" action="#" method="GET">
+          <input type="text" placeholder="Cari Jadwal" name="search" />
+          <button type="submit">Cari Jadwal</button>
+        </form>
+      </div>
+      <div class="hero-img">
+        <img src="Foto/Lapangan.png" alt="Lapangan Basket" />
+      </div>
+    </div>
+  </section>
+
+  <section class="booking-cepat">
+    <div class="container">
+      <h2>Fitur Booking Cepat</h2>
+      <form class="booking-form" action="#" method="GET">
+        <div class="form-group">
+          <label for="olahraga">Pilih Olahraga</label>
+          <select id="olahraga" name="olahraga" required>
+            <option value="">-- Pilih Olahraga --</option>
+            <option value="basket">Basket</option>
+            <option value="futsal">Futsal</option>
+            <option value="badminton">Badminton</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tanggal">Tanggal</label>
+          <input type="date" id="tanggal" name="tanggal" required />
+        </div>
+        <div class="form-group">
+          <label for="jam">Jam</label>
+          <input type="time" id="jam" name="jam" required />
+        </div>
+        <div class="form-group btn-check">
+          <button type="submit">Cek Ketersediaan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="booking-sekarang">
+    <div class="container">
+      <h2>Booking Sekarang</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="Foto/Lap Basket.png" alt="Lapangan Basket" />
+          <h3>Lapangan Basket</h3>
+          <p>Tempat nyaman untuk Basket, siap digunakan</p>
+          <p><strong>Rp 50.000 / Jam</strong></p>
+          <button>Pesen Sekarang</button>
+        </article>
+        <article class="card">
+          <img src="Foto/Lap Futsal.png" alt="Lapangan Futsal" />
+          <h3>Lapangan Futsal</h3>
+          <p>Tempat nyaman untuk Futsal, siap digunakan</p>
+          <p><strong>Rp 80.000 / Jam</strong></p>
+          <button>Pesen Sekarang</button>
+        </article>
+        <article class="card">
+          <img src="Foto/Lap Badminton.png" alt="Lapangan Badminton" />
+          <h3>Lapangan Badminton</h3>
+          <p>Tempat nyaman untuk Badminton, siap digunakan</p>
+          <p><strong>Rp 40.000 / Jam</strong></p>
+          <button>Pesen Sekarang</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="review-pengunjung">
+    <div class="container">
+      <h2>Review Pengunjung</h2>
+      <div class="reviews">
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/50?img=5" alt="Julius" />
+          <h4>Julius</h4>
+          <div class="stars">★★★★★</div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/50?img=10" alt="Jessica" />
+          <h4>Jessica</h4>
+          <div class="stars">★★★★★</div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
+        </div>
+        <div class="review-card">
+          <img src="https://i.pravatar.cc/50?img=15" alt="Ryan" />
+          <h4>Ryan</h4>
+          <div class="stars">★★★★★</div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor-form">
+    <div class="container">
+      <img src="Foto/Lap Sponsor.png" alt="Lapangan Sport" />
+      <div class="sponsor-text">
+        <h3>Ingin kerja sama ataupun Sponsor lapangan?</h3>
+        <form>
+          <input type="email" placeholder="Email Anda" required />
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>LapanganKu</h4>
+        <p>Online booking lapangan olahraga favoritmu dengan mudah dan cepat.</p>
+        <address>
+          Jl. Merdeka No. 123<br />
+          Telp: (021) 123456<br />
+          Email: info@lapanganku.com
+        </address>
+      </div>
+      <div class="footer-col">
+        <h4>Lapangan</h4>
+        <ul>
+          <li><a href="#">Basket</a></li>
+          <li><a href="#">Futsal</a></li>
+          <li><a href="#">Badminton</a></li>
+          <li><a href="#">Booking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Lokasi</h4>
+        <img src="Foto/image 13.png" alt="Map lokasi" />
+      </div>
+    </div>
+</footer>
+</body>
 </html>
