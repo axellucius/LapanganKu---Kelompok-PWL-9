@@ -5,7 +5,7 @@
 }
 
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Inter', sans-serif;
 	background-color: #fff;
 	color: #333;
 	line-height: 1.6;
@@ -18,7 +18,7 @@ body {
 }
 
 header {
-	background-color: #1e4620;
+	background-color: #2A8A56;
 	padding: 15px 0;
 	color: #fff;
 }
@@ -60,10 +60,13 @@ nav a:hover {
 }
 
 .hero {
-	background: #245223;
+	background-image: url("Foto/Lapangan.png");
 	color: #fff;
-	padding: 60px 0 80px;
+	padding: 60px;
 	overflow: hidden;
+	background-size: cover;
+	background-position: center 15%;
+	background-repeat: no-repeat;
 }
 
 .hero-inner {
@@ -74,13 +77,16 @@ nav a:hover {
 }
 
 .hero-text {
-	flex: 1 1 400px;
+	flex: 0 1 600px;
+	margin-left: -50px;
+	margin-bottom: 90px;
 }
 
 .hero-text h1 {
-	font-size: 2.5rem;
-	margin-bottom: 10px;
+	font-size: 3rem;
+	margin-bottom: 20px;
 	font-weight: 900;
+	max-width: 600px; 
 }
 
 .hero-text p {
@@ -89,17 +95,22 @@ nav a:hover {
 	margin-bottom: 25px;
 }
 
-.search-form {
-	display: flex;
-	gap: 10px;
+.hero-text h1, 
+.hero-text p {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
 }
 
-.search-form input[type="text"] {
-	flex-grow: 1;
-	padding: 12px 15px;
-	border-radius: 6px;
-	border: none;
-	font-size: 1rem;
+.hero-text p {
+  animation-delay: 0.5s; 
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .search-form button {
@@ -117,15 +128,19 @@ nav a:hover {
 	background-color: #4caf50;
 }
 
-.hero-img img {
-	width: 100%;
-	max-width: 400px;
-	border-radius: 12px;
-}
-
 .booking-cepat {
-	background-color: #d9ead3;
+	background-color: #ffffff;
 	padding: 50px 0;
+	border: 1px solid #ffffff;
+	border-radius: 20px;
+	padding: 30px;
+	max-width: 1200px;
+	margin: 30px auto;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	text-align: center;
+	margin-bottom: 20px;
+	position: relative;
+	margin-top: -90px;
 }
 
 .booking-cepat h2 {
@@ -149,10 +164,12 @@ nav a:hover {
 	flex: 1 1 180px;
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 10px;
+	margin: 0 auto;
 }
 
 .form-group label {
-	margin-bottom: 8px;
+	margin-bottom: 10px;
 	font-weight: 600;
 	color: #396d26;
 }
@@ -252,47 +269,58 @@ nav a:hover {
 }
 
 .review-pengunjung {
-	background-color: #396d26;
-	color: #d9ead3;
+	background-color: #4caf50;
+	color: #000000;
 	padding: 50px 0;
 }
 
-.review-pengunjung h2 {
+.review-pengunjung h1 {
 	text-align: center;
-	margin-bottom: 40px;
-	font-weight: 700;
+	margin-bottom: 60px;
+	font-weight: 9000;
+	color: #ffffff;
+	margin-left: -890px;
 }
 
 .reviews {
-	max-width: 1000px;
-	margin: 0 auto;
+	max-width: 2000px;
+	margin: 200 200;
 	display: flex;
-	gap: 30px;
+	gap: 20px;
 	justify-content: center;
 }
 
 .review-card {
-	background-color: #244118;
-	border-radius: 12px;
-	padding: 20px;
-	max-width: 320px;
-	text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 20px 20px 20px;
+  max-width: 320px;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .review-card img {
-	border-radius: 50%;
-	margin-bottom: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;  
+  left: 20px;   
+  border: 3px solid #fff; 
 }
 
 .review-card h4 {
-	margin-bottom: 10px;
-	font-weight: 700;
+  margin-top: 30px; 
+  margin-bottom: 5px;
+  font-weight: 700;
 }
 
+
 .stars {
-	color: #ffd700;
-	margin-bottom: 15px;
-	font-size: 1.1rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
 }
 
 .review-card p {
@@ -302,7 +330,7 @@ nav a:hover {
 
 .sponsor-form {
 	padding: 50px 0;
-	background-color: #d9ead3;
+	background-color: #ffffff;
 }
 
 .sponsor-form .container {
@@ -311,18 +339,34 @@ nav a:hover {
 	align-items: center;
 	flex-wrap: wrap;
 	justify-content: center;
+	background-color: #F3F3F3;
+	border-radius: 20px;
+	max-width: 850px; 
+	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  .sponsor-box {
+    flex-direction: column; 
+    max-width: 95%;         
+}
 }
 
 .sponsor-form img {
 	max-width: 350px;
 	border-radius: 12px;
 	box-shadow: 0 3px 12px rgb(0 0 0 / 0.15);
+	width: 100%;
+	height: 280px;
+	margin-left: -100px;
 }
 
-.sponsor-text h3 {
+.sponsor-text h2 {
+	max-width: 400px;
 	font-weight: 1000;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	color: #000000;
+	text-align: center;
 }
 
 .sponsor-text form {
