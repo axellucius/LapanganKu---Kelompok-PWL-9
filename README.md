@@ -131,7 +131,9 @@ http://localhost/Web-LapanganKu
 ## 👨‍💻 Contributors
 
 - **Axel Lucius Efendi – UI/UX Design & Front-End Developer**
+ 
 - **Bryan Stevent - Front End Developer**
+  
 - **Justin Sebastian - Back End Developer**
 
 
