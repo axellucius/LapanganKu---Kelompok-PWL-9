@@ -50,12 +50,12 @@ nav a {
 }
 
 nav a:hover {
-	background-color: #3a5527;
+	background-color: #aca7a7;
 }
 
-.btn-history {
+.btn-profile {
 	background-color: #d9ead3;
-	color: #1e4620 !important;
+	color: #000000 !important;
 	font-weight: 700;
 }
 
@@ -489,7 +489,7 @@ nav a:hover {
 }
 
 footer {
-	background-color: #1e4620;
+	background-color: #4caf50;
 	color: #d9ead3;
 	padding: 40px 0;
 }

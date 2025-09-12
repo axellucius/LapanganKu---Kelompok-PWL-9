@@ -25,7 +25,6 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-// Auto-slide (opsional, kalau mau otomatis jalan)
 setInterval(() => {
   plusSlides(1);
-}, 5000); // ganti 5000 jadi 3000 untuk 3 detik
+}, 5000);

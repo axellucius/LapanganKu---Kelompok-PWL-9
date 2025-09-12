@@ -5,7 +5,7 @@
 }
 
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Inter', sans-serif;
 	background-color: #fff;
 	color: #333;
 	line-height: 1.6;
@@ -18,7 +18,7 @@ body {
 }
 
 header {
-	background-color: #1e4620;
+	background-color: #2A8A56;
 	padding: 15px 0;
 	color: #fff;
 }
@@ -50,11 +50,11 @@ nav a {
 }
 
 nav a:hover {
-	background-color: #3a5527;
+	background-color: #aca7a7;
 }
 
-.btn-history {
+.btn-profile {
 	background-color: #d9ead3;
-	color: #1e4620 !important;
+	color: #000000 !important;
 	font-weight: 700;
 }

@@ -183,3 +183,96 @@ body {
 .options a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 1024px) {
+  .left h2 {
+    font-size: 32px;
+  }
+
+  .form-group input,
+  .btn,
+  .social-btn {
+    width: 90%;
+  }
+
+  .options,
+  .divider {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .left, .right {
+    flex: none;
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .right img {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .left h2 {
+    font-size: 28px;
+  }
+
+  .left p {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .btn,
+  .social-btn {
+    width: 100%;
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-right: 0;
+  }
+
+  .divider {
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .left h2 {
+    font-size: 24px;
+  }
+
+  .left p {
+    font-size: 12px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .social-btn {
+    font-size: 13px;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .right h2 {
+    font-size: 18px;
+  }
+
+  .right p {
+    font-size: 12px;
+  }
+}
