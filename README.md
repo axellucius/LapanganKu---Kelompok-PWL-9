@@ -14,11 +14,96 @@ This platform helps users easily check availability, book fields online, and man
 
 ---
 
-## ⚙️ Instalasi
-1. Clone this repository to your device:
-   ```bash
-   git clone https://github.com/axellucius/Web-LapanganKu.git
-   cd Web-LapanganKu
+## ⚙️ Installation Guide
+
+Follow these steps to set up **Web-LapanganKu** on your local machine using **Laragon (PHP + MySQL)**.
+
+---
+
+### 🔹 1. Requirements
+- [Laragon](https://laragon.org/) (recommended) or XAMPP  
+- PHP  
+- MySQL 
+- Browser (Chrome, Firefox, Edge)  
+- Code editor (VS Code, Sublime, etc.)  
+
+---
+
+### 🔹 2. Clone the Repository
+Open **Git Bash** inside your Laragon `www` folder and run:
+```bash
+cd C:\laragon\www
+
+git clone https://github.com/username/Web-LapanganKu.git
+```
+
+---
+
+### 🔹 3. Start Laragon
+
+Open Laragon.
+
+Click Start All (this will start Apache + MySQL).
+
+Open your browser and visit:
+
+http://localhost/Web-LapanganKu
+
+---
+
+### 🔹 4. Setup Database
+
+- **Open phpMyAdmin via browser:**
+
+http://localhost/phpmyadmin
+
+
+- **Create a new database:**
+
+CREATE DATABASE lapanganku_db;
+
+
+- **Import the SQL file:**
+
+Go to tab Import.
+
+Select database/lapanganku.sql.
+
+- **Click Go.**
+
+---
+
+### 🔹 5. Configure Database Connection
+
+- **Edit `config.php` in the project root:**
+
+```php
+<?php
+$host = "localhost";
+$user = "root";       // default Laragon user
+$password = "";       // default Laragon password is empty
+$dbname = "lapanganku_db";
+
+$conn = new mysqli($host, $user, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+```
+---
+
+### 🔹 6. Run the Application
+
+- Make sure Apache & MySQL are running in Laragon.
+
+- Open browser and go to:
+http://localhost/Web-LapanganKu
+
+
+- Register or login before booking a field.
+
+- Select Futsal, Badminton, or Basketball, choose date & time, confirm booking, and simulate payment.
 
 ---
 
