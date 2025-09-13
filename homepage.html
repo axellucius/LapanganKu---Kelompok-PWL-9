@@ -6,6 +6,7 @@
   <title>Booking Lapangan</title>
   <link rel="stylesheet" href="homepage.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
   <header>
@@ -66,17 +67,17 @@
 
   <section class="slideshow">
     <div class="slides fade">
-      <img src="Foto/Lapangan.png" alt="Lapangan 1">
+      <img src="Slideshow foto/Basket.png" alt="Lapangan 1">
       <div class="caption">Lapangan Basket Nyaman</div>
     </div>
 
     <div class="slides fade">
-      <img src="Foto/Lapangan.png" alt="Lapangan 2">
+      <img src="Slideshow foto/Futsal.png" alt="Lapangan 2">
       <div class="caption">Lapangan Futsal Modern</div>
     </div>
 
     <div class="slides fade">
-      <img src="Foto/Lapangan.png" alt="Lapangan 3">
+      <img src="Slideshow foto/Badminton.jpg" alt="Lapangan 3">
       <div class="caption">Lapangan Badminton Terbaik</div>
     </div>
 
@@ -123,37 +124,37 @@
     </div>
   </section>
 
-  <section class="review-pengunjung">
-    <div class="container">
-      <h1>Review Pengunjung</h1>
-      <div class="reviews">
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/50?img=5" alt="Julius" />
-          <h4>Julius</h4>
-          <div class="stars">★★★★★</div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
-        </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/50?img=10" alt="Jessica" />
-          <h4>Jessica</h4>
-          <div class="stars">★★★★★</div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
-        </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/50?img=15" alt="Ryan" />
-          <h4>Ryan</h4>
-          <div class="stars">★★★★★</div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
-        </div>
-        <div class="review-card">
-          <img src="https://i.pravatar.cc/50?img=15" alt="Ryan" />
-          <h4>Ryan</h4>
-          <div class="stars">★★★★★</div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Best lapangan!</p>
-        </div>
+<section class="review-pengunjung">
+  <h1>Review Pengunjung</h1>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <img src="https://i.pravatar.cc/80?img=10" alt="Jessica">
+        <h4>Jessica</h4>
+        <div class="stars">★★★★★</div>
+        <p>Pelayanan ramah, lapangan bersih. Mantap 👍</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.pravatar.cc/80?img=15" alt="Ryan">
+        <h4>Ryan</h4>
+        <div class="stars">★★★★★</div>
+        <p>Harga sewa sesuai kualitas, pasti balik lagi!</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="https://i.pravatar.cc/80?img=20" alt="Clara">
+        <h4>Clara</h4>
+        <div class="stars">★★★★☆</div>
+        <p>Lighting oke, cuma parkiran agak sempit 😅</p>
       </div>
     </div>
-  </section>
+
+    <div class="swiper-pagination"></div>
+  </div>
+  </div>
+</section>
 
   <section class="sponsor-form">
     <div class="container">
@@ -205,7 +206,8 @@
 </footer>
 
 
-
-<script src="homepage.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="slideshow.js"></script>
+<script src="swiper.js"></script>
 </body>
 </html>
