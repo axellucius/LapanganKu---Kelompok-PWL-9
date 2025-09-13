@@ -14,96 +14,61 @@ This platform helps users easily check availability, book fields online, and man
 
 ---
 
-## ⚙️ Installation Guide
+⚙️ Installation Guide (Front-End Only)
 
-Follow these steps to set up **Web-LapanganKu** on your local machine using **Laragon (PHP + MySQL)**.
-
----
+Follow these steps to run Web-LapanganKu (HTML, CSS, and JavaScript version) on your local machine.
 
 ### 🔹 1. Requirements
-- [Laragon](https://laragon.org/) (recommended) or XAMPP  
-- PHP  
-- MySQL 
-- Browser (Chrome, Firefox, Edge)  
-- Code editor (VS Code, Sublime, etc.)  
+
+- Browser (Chrome, Firefox, Edge)
+
+- Code editor (VS Code, Sublime, etc.)
+
+- (Optional) Live Server extension in VS Code
 
 ---
 
-### 🔹 2. Clone the Repository
-Open **Git Bash** inside your Laragon `www` folder and run:
-```bash
-cd C:\laragon\www
+### 🔹 2. Download Project
 
+You can choose one of the following methods:
+
+### A. Clone with Git
+``` bash
 git clone https://github.com/username/Web-LapanganKu.git
 ```
 
----
+### B. Download ZIP from GitHub
 
-### 🔹 3. Start Laragon
+- Open the repo on GitHub → Web-LapanganKu
 
-Open Laragon.
+- Click the Code (Green) button
 
-Click Start All (this will start Apache + MySQL).
+- Select Download ZIP
 
-Open your browser and visit:
-
-http://localhost/Web-LapanganKu
+- Extract the ZIP file on your computer
 
 ---
 
-### 🔹 4. Setup Database
+### 🔹 3. Open Project
 
-- **Open phpMyAdmin via browser:**
+- Navigate to the project folder after cloning or extracting:
 
-http://localhost/phpmyadmin
-
-
-- **Create a new database:**
-
-CREATE DATABASE lapanganku_db;
-
-
-- **Import the SQL file:**
-
-Go to tab Import.
-
-Select database/lapanganku.sql.
-
-- **Click Go.**
+- cd Web-LapanganKu
 
 ---
 
-### 🔹 5. Configure Database Connection
+### 🔹 4. Run in Browser
 
-- **Edit `config.php` in the project root:**
+- Double-click the index.html file, or
 
-```php
-<?php
-$host = "localhost";
-$user = "root";       // default Laragon user
-$password = "";       // default Laragon password is empty
-$dbname = "lapanganku_db";
+- Run it with Live Server in VS Code for auto-reload while editing.
 
-$conn = new mysqli($host, $user, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-```
 ---
 
-### 🔹 6. Run the Application
+### 🔹 5. Done
 
-- Make sure Apache & MySQL are running in Laragon.
-
-- Open browser and go to:
-http://localhost/Web-LapanganKu
-
-
-- Register or login before booking a field.
-
-- Select Futsal, Badminton, or Basketball, choose date & time, confirm booking, and simulate payment.
+You can now view the LapanganKu website locally in your browser.
+This version is built with HTML, CSS, and JavaScript only — no database or PHP required.
 
 ---
 
