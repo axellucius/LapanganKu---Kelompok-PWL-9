@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LapanganKu Sign-Up</title>
+    <title>LapanganKu Forgot Password</title>
     <link rel="stylesheet" href="sign-in.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,40 +11,20 @@
 <body>
   <div class="container">
     <div class="left">      
-      <h2>Sign up</h2>
-      <p>Sudah punya akun? <a href="sign-in.html">Sign in</a></p>
+      <h2>Forgot Password</h2>
+      <p>Remmember Password? <a href="sign-in.php">Sign in</a></p>
 
-      <form id="signUpForm">
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" name="name" placeholder="Your full name" required>
-        </div>
-        
+      <form id="forgotPasswordForm">
         <div class="form-group">
           <label>E-mail</label>
           <input type="email" name="email" placeholder="example@gmail.com" required>
         </div>
         
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" name="password" placeholder="••••••" required>
-          <span class="toggle-password" onclick="togglePassword()">
-          </span>
-        </div>
+        <p style="font-size: 14px; color: #666; margin: 10px 0;">
+          Enter your email address and we'll send you a link to reset your password.
+        </p>
         
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <input type="password" name="confirm-password" placeholder="••••••" required>
-        </div>
-
-        <div class="options">
-          <label>
-            <input type="checkbox" name="terms" required> 
-            I agree to the <a href="#">Terms & Conditions</a>
-          </label>
-        </div>
-        
-        <button type="submit" class="btn">Sign up</button>
+        <button type="submit" class="btn">Send Reset Link</button>
 
         <div class="divider">
           <hr><span>OR</span><hr>
@@ -69,6 +49,7 @@
     </div>
   </div>
 
-<script src="sign-up.js"></script>
+  <!-- Connect to JavaScript -->
+  <script src="forgot-password.js"></script>
 </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -18,8 +17,8 @@
           <li><a href="#">Home</a></li>
           <li><a href="#">Lapangan</a></li>
           <li><a href="#">About us</a></li>
-          <li><a href="Sign In.html">Login</a></li>
-          <li><a href="Sign Up.html">Daftar</a></li>
+          <li><a href="sign-in.php">Login</a></li>
+          <li><a href="sign-up.php">Daftar</a></li>
           <li><a href="#" class="btn-profile">Profile</a></li>
         </ul>
       </nav>
