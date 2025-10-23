@@ -1,10 +1,41 @@
+<?php
+require_once '../config/db-connection.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm = $_POST['confirm-password'];
+
+    if ($password != $confirm) {
+        echo "<script>alert('Password tidak sama!'); window.history.back();</script>";
+        exit;
+    }
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $name, $email, $hashed_password);
+
+    if ($stmt->execute()) {
+        header("Location: ../pages/sign-in.php");
+        exit;
+    } else {
+        echo "<script>alert('Pendaftaran gagal: " . $stmt->error . "'); window.history.back();</script>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LapanganKu Sign-Up</title>
-    <link rel="stylesheet" href="sign-in.css">
+    <link rel="stylesheet" href="../style/sign-in.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -12,9 +43,9 @@
   <div class="container">
     <div class="left">      
       <h2>Sign up</h2>
-      <p>Sudah punya akun? <a href="sign-in.html">Sign in</a></p>
+      <p>Sudah punya akun? <a href="../pages/sign-in.php">Sign in</a></p>
 
-      <form id="signUpForm">
+      <form id="signUpForm" method="POST">
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" placeholder="Your full name" required>
@@ -28,8 +59,6 @@
         <div class="form-group">
           <label>Password</label>
           <input type="password" name="password" placeholder="••••••" required>
-          <span class="toggle-password" onclick="togglePassword()">
-          </span>
         </div>
         
         <div class="form-group">
@@ -63,12 +92,12 @@
     </div>
 
     <div class="right">
-      <img src="Foto/Lapangan.png" alt="Lapangan">
+      <img src="../photos/Lapangan.png" alt="Lapangan">
       <h2>Welcome to LapanganKu</h2>
       <p>Lapangan terbaik se Indonesia yang menyediakan berbagai fasilitas yang menyenangkan dan pelayanan yang sangat bagus</p>
     </div>
   </div>
 
-<script src="sign-up.js"></script>
+<script src="../script/sign-up.js"></script>
 </body>
 </html>

@@ -126,7 +126,7 @@ nav a:hover {
 }
 
 .hero {
-	background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("Foto/Lapangan.png");
+	background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("../photo/Lapangan.png");
 	color: #fff;
 	padding: 80px 60px;
 	overflow: hidden;

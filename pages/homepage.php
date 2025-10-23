@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Booking Lapangan</title>
-  <link rel="stylesheet" href="homepage.css"/>
+  <link rel="stylesheet" href="../style/homepage.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
@@ -14,11 +14,11 @@
       <div class="logo">LapanganKu</div>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="../pages/homepage.php">Home</a></li>
           <li><a href="#">Lapangan</a></li>
           <li><a href="#">About us</a></li>
-          <li><a href="sign-in.php">Login</a></li>
-          <li><a href="sign-up.php">Daftar</a></li>
+          <li><a href="../pages/sign-in.php">Login</a></li>
+          <li><a href="../pages/sign-up.php">Daftar</a></li>
           <li><a href="#" class="btn-profile">Profile</a></li>
         </ul>
       </nav>
@@ -67,25 +67,25 @@
 
   <section class="slideshow">
     <div class="slides fade">
-      <img src="Slideshow foto/Basket.png" alt="Lapangan 1">
+      <img src="../slideshowFoto/Basket.png" alt="Lapangan 1">
       <div class="caption">Lapangan Basket Nyaman</div>
     </div>
 
     <div class="slides fade">
-      <img src="Slideshow foto/Futsal.png" alt="Lapangan 2">
+      <img src="../slideshowFoto/Futsal.png" alt="Lapangan 2">
       <div class="caption">Lapangan Futsal Modern</div>
     </div>
 
     <div class="slides fade">
-      <img src="Slideshow foto/Badminton.jpg" alt="Lapangan 3">
+      <img src="../slideshowFoto/Badminton.jpg" alt="Lapangan 3">
       <div class="caption">Lapangan Badminton Terbaik</div>
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">
-      <img src="Foto/211689_left_arrow_icon.png" alt="Prev">
+      <img src="../photos/211689_left_arrow_icon.png" alt="Prev">
     </a>
     <a class="next" onclick="plusSlides(1)">
-      <img src="Foto/211607_right_arrow_icon.png" alt="Next">
+      <img src="../photos/211607_right_arrow_icon.png" alt="Next">
     </a>
 
     <div class="dots">
@@ -100,21 +100,21 @@
       <h2>Booking Sekarang</h2>
       <div class="cards">
         <article class="card">
-          <img src="Foto/Lap Basket.png" alt="Lapangan Basket" />
+          <img src="../photos/Lap Basket.png" alt="Lapangan Basket" />
           <h3>Lapangan Basket</h3>
           <p>Tempat nyaman untuk Basket, siap digunakan</p>
           <p><strong>Rp 50.000 / Jam</strong></p>
           <button>Pesen Sekarang</button>
         </article>
         <article class="card">
-          <img src="Foto/Lap Futsal.png" alt="Lapangan Futsal" />
+          <img src="../photos/Lap Futsal.png" alt="Lapangan Futsal" />
           <h3>Lapangan Futsal</h3>
           <p>Tempat nyaman untuk Futsal, siap digunakan</p>
           <p><strong>Rp 80.000 / Jam</strong></p>
           <button>Pesen Sekarang</button>
         </article>
         <article class="card">
-          <img src="Foto/Lap Badminton.png" alt="Lapangan Badminton" />
+          <img src="../photos/Lap Badminton.png" alt="Lapangan Badminton" />
           <h3>Lapangan Badminton</h3>
           <p>Tempat nyaman untuk Badminton, siap digunakan</p>
           <p><strong>Rp 40.000 / Jam</strong></p>
@@ -158,7 +158,7 @@
 
   <section class="sponsor-form">
     <div class="container">
-      <img src="Foto/Lap Sponsor.png" alt="Lapangan Sport" />
+      <img src="../photos/Lap Sponsor.png" alt="Lapangan Sport" />
       <div class="sponsor-text">
         <h2>Ingin kerja sama ataupun Sponsor lapangan?</h2>
         <form>
@@ -200,14 +200,14 @@
       </div>
       <div class="footer-col">
         <h4>Lokasi</h4>
-        <img src="Foto/image 13.png" alt="Map lokasi" />
+        <img src="../photos/image 13.png" alt="Map lokasi" />
       </div>
     </div>
 </footer>
 
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="slideshow.js"></script>
-<script src="swiper.js"></script>
+<script src="../script/slideshow.js"></script>
+<script src="../script/swiper.js"></script>
 </body>
 </html>

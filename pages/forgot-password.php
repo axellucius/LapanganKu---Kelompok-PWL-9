@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LapanganKu Forgot Password</title>
-    <link rel="stylesheet" href="sign-in.css">
+    <link rel="stylesheet" href="../style/sign-in.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -43,13 +43,12 @@
     </div>
 
     <div class="right">
-      <img src="Foto/Lapangan.png" alt="Lapangan">
+      <img src="../photos/Lapangan.png" alt="Lapangan">
       <h2>Welcome to LapanganKu</h2>
       <p>Lapangan terbaik se Indonesia yang menyediakan berbagai fasilitas yang menyenangkan dan pelayanan yang sangat bagus</p>
     </div>
   </div>
 
-  <!-- Connect to JavaScript -->
-  <script src="forgot-password.js"></script>
+  <script src="../script/forgot-password.js"></script>
 </body>
 </html>

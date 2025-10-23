@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="pembayaran.css"/>
+    <link rel="stylesheet" href="../style/pembayaran.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -12,7 +12,7 @@
       <div class="pesanan">
         <h2>Pesanan Anda</h2>
         <div class="detail-pesanan">
-          <img src="Foto/dpnkwabotttfihp7gf3r.jpg" alt="" width="150px" height="120px">
+          <img src="../photos/dpnkwabotttfihp7gf3r.jpg" alt="" width="150px" height="120px">
           <div class="info-pesanan">
             <strong>Lapangan Badminton</strong>
             <div class="info-detail">

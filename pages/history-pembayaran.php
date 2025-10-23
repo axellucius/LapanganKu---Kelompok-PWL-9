@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LapanganKu - History Pemesanan</title>
-  <link rel="stylesheet" href="history-pembayaran.css">
+  <link rel="stylesheet" href="../style/history-pembayaran.css">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
 
       <div class="card-item">
         <div class="lapangan">
-          <img src="dpnkwabotttfihp7gf3r.jpg" alt="Badminton">
+          <img src="../photos/dpnkwabotttfihp7gf3r.jpg" alt="Badminton">
           <div class="lapangan-info">
             <h3>Lapangan Badminton</h3>
             <p>Jumat, 25 Agustus 2025</p>
@@ -46,17 +46,17 @@
         <div class="status success">Sucess</div>
       </div>
       <div class="gambartgl">
-        <img src="image-removebg-preview (16).png" alt="tgl">
+        <img src="../photos/image-removebg-preview (16).png" alt="tgl">
       </div>
       <div class="gambarwkt">
-        <img src="image-removebg-preview (17).png" alt="tgl">
+        <img src="../photos/image-removebg-preview (17).png" alt="tgl">
       </div>
       <div class="gambarbca">
-        <img src="images.png" alt="bca">
+        <img src="../photos/images.png" alt="bca">
       </div>
       <div class="card-item">
         <div class="lapangan2">
-          <img src="pngtree-playground-basketball-hoop-afternoon-basketball-hoop-school-no-photography-picture-with-image_824923.jpg" alt="Basket">
+          <img src="../photos/pngtree-playground-basketball-hoop-afternoon-basketball-hoop-school-no-photography-picture-with-image_824923.jpg" alt="Basket">
           <div class="lapangan-info2">
             <h3>Lapangan Basket</h3>
             <p>Senin, 27 Agustus 2025</p>
@@ -69,13 +69,13 @@
       </div>
     </div>
      <div class="gambartgl2">
-        <img src="image-removebg-preview (16).png" alt="tgl">
+        <img src="../photos/image-removebg-preview (16).png" alt="tgl">
       </div>
       <div class="gambarwkt2">
-        <img src="image-removebg-preview (17).png" alt="tgl">
+        <img src="../photos/image-removebg-preview (17).png" alt="tgl">
       </div>
     <div class="gambarbca2">
-        <img src="images.png" alt="bca">
+        <img src="../photos/images.png" alt="bca">
     </main>
   <footer>
     <div class="footer-container">
