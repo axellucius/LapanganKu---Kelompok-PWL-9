@@ -14,11 +14,9 @@
       <nav>
         <ul>
           <li><a href="../pages/homepage.php">Home</a></li>
-          <li><a href="#">Lapangan</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="../pages/sign-in.php">Login</a></li>
-          <li><a href="../pages/sign-up.php">Daftar</a></li>
-          <li><a href="#" class="btn-profile">Profile</a></li>
+          <li><a href="../pages/pemesanan.php">Lapangan</a></li>
+          <li><a href="../pages/about-us.php">About us</a></li>
+          <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
         </ul>
       </nav>
     </div>

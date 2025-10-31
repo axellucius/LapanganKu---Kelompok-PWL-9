@@ -5,22 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LapanganKu - History Pemesanan</title>
   <link rel="stylesheet" href="../style/history-pembayaran.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <nav class="navbar">
-      <div class="logo">Lapangan<span>Ku</span></div>
-      <ul class="nav-fitur">
-        <li><a href="">Home</a></li>
-        <li><a href="">Lapangan</a></li>
-        <li><a href="">Harga</a></li>
-        <li><a href="">About us</a></li>
-        <li><a href="" class="active">Login</a></li>
-      </ul>
-      <a href="" class="tombol-history">History Pemesanan</a>
-    </nav>
+    <div class="container header-inner">
+      <div class="logo">LapanganKu</div>
+      <nav>
+        <ul>
+          <li><a href="../pages/homepage.php">Home</a></li>
+          <li><a href="../pages/pemesanan.php">Lapangan</a></li>
+          <li><a href="../pages/about-us.php">About us</a></li>
+          <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
 
   <main>
     <h2 class="judul">History Pemesanan</h2>

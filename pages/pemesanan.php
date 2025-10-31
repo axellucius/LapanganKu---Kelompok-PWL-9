@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pemesanan Lapangan - LapanganKu</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/pemesanan.css">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">LapanganKu</h1>
-            <nav class="nav">
-                <a href="#">Home</a>
-                <a href="#">Lapangan</a>
-                <a href="#">Harga</a>
-                <a href="#">About us</a>
-                <a href="#">Login</a>
-                <a href="#" class="btn-history">History Pemesanan</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">LapanganKu</div>
+      <nav>
+        <ul>
+          <li><a href="../pages/homepage.php">Home</a></li>
+          <li><a href="../pages/pemesanan.php">Lapangan</a></li>
+          <li><a href="../pages/about-us.php">About us</a></li>
+          <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
     <div class="main">
         
@@ -128,6 +129,6 @@
         </div>
     </div>
 
-    <script src="pemesanan.js"></script>
+    <script src="../script/pemesanan.js"></script>
 </body>
 </html>

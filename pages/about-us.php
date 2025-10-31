@@ -4,25 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LapanganKu - Penyewaan Lapangan Olahraga</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/about-us.css">
 </head>
 <body>
     
-    <header class="header">
-        <div class="container">
-            <div class="nav-wrapper">
-                <h1 class="logo">LapanganKu</h1>
-                <nav class="nav">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#lapangan" class="nav-link">Lapangan</a>
-                    <a href="#harga" class="nav-link">Harga</a>
-                    <a href="#about" class="nav-link">About us</a>
-                    <a href="#daftar" class="nav-link">Daftar</a>
-                    <a href="#history" class="btn-history">History Pemesanan</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">LapanganKu</div>
+      <nav>
+        <ul>
+          <li><a href="../pages/homepage.php">Home</a></li>
+          <li><a href="../pages/pemesanan.php">Lapangan</a></li>
+          <li><a href="../pages/about-us.php">About us</a></li>
+          <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
    
     <section class="about-section" id="about">
@@ -33,7 +31,7 @@
             <div class="sports-grid">
                 <div class="sport-card">
                     <div class="sport-icon badminton-icon">
-                        <img src="image-removebg-preview (31).png" alt="Badminton">
+                        <img src="../photos/badmin.png" alt="Badminton">
                     </div>
                     <h3 class="sport-title">Badminton</h3>
                     <p class="sport-description">Menyediakan 4 Lapangan</p>
@@ -41,7 +39,7 @@
                 
                 <div class="sport-card">
                     <div class="sport-icon futsal-icon">
-                        <img src="image.png" alt="Futsal">
+                        <img src="../photos/futsal.png" alt="Futsal">
                     </div>
                     <h3 class="sport-title">Futsal</h3>
                     <p class="sport-description">Menyediakan 2 Lapangan Outdoor serta Indoor</p>
@@ -49,7 +47,7 @@
                 
                 <div class="sport-card">
                     <div class="sport-icon basket-icon">
-                        <img src="image copy.png" alt="Basket">
+                        <img src="../photos/basket.png" alt="Basket">
                     </div>
                     <h3 class="sport-title">Basket</h3>
                     <p class="sport-description">Menyediakan 2 Lapangan Outdoor serta Indoor</p>
@@ -67,7 +65,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-photo-axel">
-                        <img src="WhatsApp Image 2025-10-17 at 10.50.42_1b73b13f.jpg" alt="Axel Lucius Efendi">
+                        <img src="../photos/Axel.png" alt="Axel Lucius Efendi">
                     </div>
                     <h3 class="member-name-axel">Axel Lucius Efendi</h3>
                     <p class="member-role-axel">Sebagai UI / UX Designer</p>
@@ -75,7 +73,7 @@
                 
                 <div class="team-member">
                     <div class="member-photo-bryan">
-                        <img src="WhatsApp Image 2025-10-17 at 10.50.42_05a38719.jpg" alt="Bryan Stevent">
+                        <img src="../photos/Bryan.png" alt="Bryan Stevent">
                     </div>
                     <h3 class="member-name-bryan">Bryan Stevent</h3>
                     <p class="member-role-bryan">Front-End Developer</p>
@@ -83,7 +81,7 @@
                 
                 <div class="team-member">
                     <div class="member-photo-justin">
-                        <img src="WhatsApp Image 2025-10-17 at 10.50.42_df454dc3.jpg" alt="Justin Sebastian">
+                        <img src="../photos/Justin.png" alt="Justin Sebastian">
                     </div>
                     <h3 class="member-name-justin">Justin Sebastian</h3>
                     <p class="member-role-justin">Back-End Developer</p>
@@ -174,49 +172,44 @@
     </section>
 
     
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3 class="footer-brand">LapanganKu</h3>
-                    <p class="footer-text">Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.</p>
-                    <div class="footer-contact">
-                        <p><strong>Layanan Konsumen</strong></p>
-                        <p>E-mail: LapanganKu@gmail.com</p>
-                        <p>Telepon: 0896 2198711</p>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-heading">LAYANAN</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Bantuan</a></li>
-                        <li><a href="#">Cara Pemesanan</a></li>
-                        <li><a href="#">Keadaan Lapangan</a></li>
-                        <li><a href="#">Pijante Lapangan</a></li>
-                        <li><a href="#">Konfirmasi Pesanan</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-heading">INFORMASI</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Lokasi</a></li>
-                        <li><a href="#">Lapangan</a></li>
-                        <li><a href="#">Harga Sewa</a></li>
-                        <li><a href="#">Motori Pemesanan</a></li>
-                        <li><a href="#">Konfirmasi Pesanan</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-heading">LOKASI</h4>
-                    <div class="map-placeholder">
-                        <img src="001172300_1498393439-Google_Maps.jpg" alt="Map">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer>
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>LapanganKu</h4>
+        <p>Online booking lapangan olahraga favoritmu dengan mudah dan cepat.</p>
+        <address>
+          Jl. Merdeka No. 123<br />
+          Telp: (021) 123456<br />
+          Email: info@lapanganku.com
+        </address>
+      </div>
+      <div class="footer-col">
+        <h4>Lapangan</h4>
+        <ul>
+          <li><a href="#">Basket</a></li>
+          <li><a href="#">Futsal</a></li>
+          <li><a href="#">Badminton</a></li>
+          <li><a href="#">Booking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Lokasi</h4>
+        <img src="../photos/image 13.png" alt="Map lokasi" />
+      </div>
+    </div>
+</footer>
+
+
+
+    <script src="../script/about-us.js"></script>
 </body>
 </html>

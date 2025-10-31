@@ -15,11 +15,11 @@
       <nav>
         <ul>
           <li><a href="../pages/homepage.php">Home</a></li>
-          <li><a href="#">Lapangan</a></li>
-          <li><a href="#">About us</a></li>
+          <li><a href="../pages/pemesanan.php">Lapangan</a></li>
+          <li><a href="../pages/about-us.php">About us</a></li>
           <li><a href="../pages/sign-in.php">Login</a></li>
           <li><a href="../pages/sign-up.php">Daftar</a></li>
-          <li><a href="#" class="btn-profile">Profile</a></li>
+          <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
         </ul>
       </nav>
     </div>
@@ -67,17 +67,17 @@
 
   <section class="slideshow">
     <div class="slides fade">
-      <img src="../slideshowFoto/Basket.png" alt="Lapangan 1">
+      <img src="../slideshow foto/Basket.png" alt="Lapangan 1">
       <div class="caption">Lapangan Basket Nyaman</div>
     </div>
 
     <div class="slides fade">
-      <img src="../slideshowFoto/Futsal.png" alt="Lapangan 2">
+      <img src="../slideshow foto/Futsal.png" alt="Lapangan 2">
       <div class="caption">Lapangan Futsal Modern</div>
     </div>
 
     <div class="slides fade">
-      <img src="../slideshowFoto/Badminton.jpg" alt="Lapangan 3">
+      <img src="../slideshow foto/Badminton.jpg" alt="Lapangan 3">
       <div class="caption">Lapangan Badminton Terbaik</div>
     </div>
 
@@ -104,21 +104,21 @@
           <h3>Lapangan Basket</h3>
           <p>Tempat nyaman untuk Basket, siap digunakan</p>
           <p><strong>Rp 50.000 / Jam</strong></p>
-          <button>Pesen Sekarang</button>
+          <button onclick="window.location.href='pemesanan.php'">Pesen Sekarang</button>
         </article>
         <article class="card">
           <img src="../photos/Lap Futsal.png" alt="Lapangan Futsal" />
           <h3>Lapangan Futsal</h3>
           <p>Tempat nyaman untuk Futsal, siap digunakan</p>
           <p><strong>Rp 80.000 / Jam</strong></p>
-          <button>Pesen Sekarang</button>
+          <button onclick="window.location.href='pemesanan.php'">Pesen Sekarang</button>
         </article>
         <article class="card">
           <img src="../photos/Lap Badminton.png" alt="Lapangan Badminton" />
           <h3>Lapangan Badminton</h3>
           <p>Tempat nyaman untuk Badminton, siap digunakan</p>
           <p><strong>Rp 40.000 / Jam</strong></p>
-          <button>Pesen Sekarang</button>
+          <button onclick="window.location.href='pemesanan.php'">Pesen Sekarang</button>
         </article>
       </div>
     </div>
