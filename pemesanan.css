@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+}
+
+.header {
+    background: linear-gradient(90deg, #3d8b52, #4a9d5f);
+    padding: 20px;
+    
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.nav {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-history {
+    border: 1.5px solid white;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+}
+
+
+.main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+
+.top-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.promo {
+    background: linear-gradient(90deg, #3d8b52, #4a9d5f);
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.sports {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.sport {
+    background: white;
+    border: 1.5px solid #ccc;
+    border-radius: 6px;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.sport:hover {
+    border-color: #4a9d5f;
+}
+
+.sport.active {
+    background: linear-gradient(180deg, #3d8b52, #4a9d5f);
+    border-color: #3d8b52;
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sport.active .icon {
+    filter: brightness(2);
+}
+
+.name {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.sport.active .name {
+    color: white;
+    font-weight: 500;
+}
+
+
+.bottom-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.info {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1.8rem;
+}
+
+.field {
+    margin-bottom: 1.8rem;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+.select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: white;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #4a9d5f;
+}
+
+.radios {
+    display: flex;
+    gap: 2rem;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.radio input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #4a9d5f;
+}
+
+.times {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+}
+
+.time {
+    padding: 0.7rem;
+    background: white;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.time:hover {
+    border-color: #4a9d5f;
+}
+
+.time.active {
+    background: linear-gradient(180deg, #3d8b52, #4a9d5f);
+    color: white;
+    border-color: #3d8b52;
+    font-weight: 500;
+}
+
+
+.summary-section {
+    position: sticky;
+    top: 2rem;
+}
+
+.summary {
+    background: white;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    padding: 1.8rem;
+}
+
+.summary-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.summary-row {
+    margin-bottom: 1.2rem;
+}
+
+.summary-label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.summary-value {
+    font-size: 0.95rem;
+    color: #000;
+}
+
+.btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(90deg, #3d8b52, #4a9d5f);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+@media (max-width: 1024px) {
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .summary-section {
+        position: relative;
+        top: 0;
+    }
+    
+    .sports {
+        grid-template-columns: 1fr;
+    }
+    
+    .times {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .times {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
