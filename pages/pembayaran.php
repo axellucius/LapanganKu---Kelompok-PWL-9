@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -31,7 +32,7 @@
       </div>
       <div class="pembayaran">
         <h2>Pembayaran</h2>
-        <form>
+        <form action="simpan-pembayaran.php" method="POST">
           <label for="nama">Nama Lengkap</label>
           <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" />
           <label for="email">Email/No-Hp</label>

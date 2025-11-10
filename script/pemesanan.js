@@ -1,96 +1,65 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const sportButtons = document.querySelectorAll(".sport");
+    const tanggalInput = document.getElementById("tanggal");
+    const lapanganRadios = document.querySelectorAll("input[name='lapangan']");
+    const jamMulaiSelect = document.getElementById("jam_mulai");
+    const jamSelesaiSelect = document.getElementById("jam_selesai");
+    const inputSport = document.getElementById("inputSport");
+    const sSport = document.getElementById("s-sport");
+    const sLapangan = document.getElementById("s-lapangan");
+    const sTanggal = document.getElementById("s-tanggal");
+    const sJam = document.getElementById("s-jam");
 
-let olahraga = 'Basket';
-let lap = 'Lapangan 1';
-let tgl = '';
-let waktu = '';
+    const jamArray = ["09.00","10.00","11.00","12.00","13.00","14.00","15.00","16.00","17.00","18.00","19.00","20.00","21.00","22.00","23.00"];
 
+    jamArray.forEach(j => {
+        const opt1 = document.createElement("option");
+        opt1.value = j;
+        opt1.textContent = j;
+        jamMulaiSelect.appendChild(opt1);
+    });
 
-function buatTanggal() {
-    const s = document.getElementById('tanggal');
-    const bln = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-    
-    for (let i = 0; i < 30; i++) {
-        const d = new Date();
-        d.setDate(d.getDate() + i);
-        
-        const hari = d.getDate();
-        const bulan = bln[d.getMonth()];
-        const tahun = d.getFullYear();
-        
-        const opt = document.createElement('option');
-        opt.value = `${hari} ${bulan} ${tahun}`;
-        opt.textContent = opt.value;
-        s.appendChild(opt);
+    function updateJamSelesai() {
+        jamSelesaiSelect.innerHTML = "<option value=''>Pilih jam selesai</option>";
+        const startIndex = jamArray.indexOf(jamMulaiSelect.value);
+        if (startIndex !== -1) {
+            for (let i = startIndex + 1; i < jamArray.length; i++) {
+                const opt = document.createElement("option");
+                opt.value = jamArray[i];
+                opt.textContent = jamArray[i];
+                jamSelesaiSelect.appendChild(opt);
+            }
+        }
     }
-}
 
+    jamMulaiSelect.addEventListener("change", updateJamSelesai);
 
-function perbaruiRingkasan() {
-    document.getElementById('s-sport').textContent = olahraga + ' -';
-    document.getElementById('s-lapangan').textContent = lap;
-    document.getElementById('s-tanggal').textContent = tgl || '-';
-    
-    if (waktu) {
-        const akhir = (parseInt(waktu) + 1).toString().padStart(2, '0');
-        document.getElementById('s-jam').textContent = `${waktu} - ${akhir}.00`;
-    } else {
-        document.getElementById('s-jam').textContent = '-';
-    }
-}
+    sportButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            sportButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            inputSport.value = btn.dataset.sport;
+            sSport.textContent = btn.dataset.sport;
+        });
+    });
 
+    lapanganRadios.forEach(r => {
+        r.addEventListener("change", () => {
+            sLapangan.textContent = r.value;
+        });
+    });
 
-document.querySelectorAll('.sport').forEach(b => {
-    b.addEventListener('click', function() {
-        document.querySelectorAll('.sport').forEach(x => x.classList.remove('active'));
-        this.classList.add('active');
-        olahraga = this.dataset.sport;
-        perbaruiRingkasan();
+    tanggalInput.addEventListener("change", () => {
+        sTanggal.textContent = tanggalInput.value;
+    });
+
+    jamMulaiSelect.addEventListener("change", () => {
+        if (jamSelesaiSelect.value) {
+            sJam.textContent = jamMulaiSelect.value + " - " + jamSelesaiSelect.value;
+        }
+    });
+
+    jamSelesaiSelect.addEventListener("change", () => {
+        sJam.textContent = jamMulaiSelect.value + " - " + jamSelesaiSelect.value;
     });
 });
-
-
-document.querySelectorAll('input[name="lapangan"]').forEach(r => {
-    r.addEventListener('change', function() {
-        lap = this.value;
-        perbaruiRingkasan();
-    });
-});
-
-
-document.getElementById('tanggal').addEventListener('change', function() {
-    tgl = this.value;
-    perbaruiRingkasan();
-});
-
-
-document.querySelectorAll('.time').forEach(b => {
-    b.addEventListener('click', function() {
-        document.querySelectorAll('.time').forEach(x => x.classList.remove('active'));
-        this.classList.add('active');
-        waktu = this.dataset.time;
-        perbaruiRingkasan();
-    });
-});
-
-
-document.querySelector('.btn').addEventListener('click', function() {
-    if (!tgl) {
-        alert('Pilih tanggal terlebih dahulu!');
-        return;
-    }
-    if (!waktu) {
-        alert('Pilih jam terlebih dahulu!');
-        return;
-    }
-    
-    const akhir = (parseInt(waktu) + 1).toString().padStart(2, '0');
-    const pesan = `Konfirmasi Pemesanan:\n\nOlahraga: ${olahraga}\nLapangan: ${lap}\nTanggal: ${tgl}\nJam: ${waktu} - ${akhir}.00\n\nLanjutkan ke pembayaran?`;
-    
-    if (confirm(pesan)) {
-        alert('Terima kasih! Fitur pembayaran akan segera tersedia.');
-    }
-});
-
-
-buatTanggal();
-perbaruiRingkasan();
