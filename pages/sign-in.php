@@ -3,7 +3,6 @@ require_once '../config/db-connection.php';
 session_start();
 
 $error = '';
-$success = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST['email']);
@@ -20,10 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['password'])) {
-                $_SESSION['user'] = $user['name'];
-                $success = "Login berhasil!";
+                // Simpan semua data user ke session
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_name'] = $user['name'];
+                $_SESSION['user_email'] = $user['email'];
+                $_SESSION['user_logged_in'] = true;
+                
                 echo "<script>
-                        alert('Login berhasil!');
+                        alert('✅ Login berhasil! Selamat datang, " . htmlspecialchars($user['name']) . "');
                         window.location.href = 'homepage.php';
                       </script>";
                 exit;
@@ -33,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             $error = "Email tidak ditemukan!";
         }
+        $stmt->close();
     }
 }
 ?>
@@ -102,6 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </div>
 
-  <script src="../script/sign-in.js?v=2"></script>
+  <script src="../script/sign-in.js?v=3"></script>
 </body>
 </html>

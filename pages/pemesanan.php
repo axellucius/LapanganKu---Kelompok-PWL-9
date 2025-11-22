@@ -1,5 +1,15 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
+    echo "<script>
+        alert('⚠️ Silakan login terlebih dahulu untuk melakukan pemesanan!');
+        window.location.href = 'sign-in.php';
+    </script>";
+    exit;
+}
+
+$user_name = $_SESSION['user_name'] ?? 'User';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -20,7 +30,7 @@ session_start();
           <li><a href="homepage.php">Home</a></li>
           <li><a href="pemesanan.php">Lapangan</a></li>
           <li><a href="about-us.php">About us</a></li>
-          <li><a href="profil-page.php" class="btn-profile">Profile</a></li>
+          <li><a href="profil-page.php" class="btn-profile">👤 <?php echo htmlspecialchars($user_name); ?></a></li>
         </ul>
       </nav>
     </div>

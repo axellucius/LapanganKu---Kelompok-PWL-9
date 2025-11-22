@@ -1,11 +1,49 @@
+<?php
+session_start();
+require_once '../config/db-connection.php';
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
+    echo "<script>
+        alert('⚠️ Silakan login terlebih dahulu!');
+        window.location.href = 'sign-in.php';
+    </script>";
+    exit;
+}
+
+// Ambil data user dari database
+$user_id = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+// Hitung statistik user
+$total_pemesanan = $conn->query("SELECT COUNT(*) as total FROM pemesanan WHERE user_id = $user_id")->fetch_assoc()['total'];
+$total_pembayaran = $conn->query("SELECT COUNT(*) as total FROM pembayaran pb JOIN pemesanan pm ON pb.id_pemesanan = pm.id_pemesanan WHERE pm.user_id = $user_id AND pb.status = 'success'")->fetch_assoc()['total'];
+$total_spending = $conn->query("SELECT SUM(pb.jumlah) as total FROM pembayaran pb JOIN pemesanan pm ON pb.id_pemesanan = pm.id_pemesanan WHERE pm.user_id = $user_id AND pb.status = 'success'")->fetch_assoc()['total'] ?? 0;
+
+// Hitung rating (rata-rata dari total booking yang success)
+$rating = $total_pembayaran > 0 ? min(5.0, 4.0 + ($total_pembayaran * 0.1)) : 0;
+$rating = number_format($rating, 1);
+
+// Format tanggal bergabung
+$joined_date = new DateTime($user['created_at']);
+$now = new DateTime();
+$diff = $now->diff($joined_date);
+$months_joined = ($diff->y * 12) + $diff->m;
+
+$stmt->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LapanganKu - Profile Page</title>
+  <title>Profile - <?php echo htmlspecialchars($user['name']); ?></title>
   <link rel="stylesheet" href="../style/Styleprofilpage.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="sidebar">
@@ -25,8 +63,14 @@
       </a>
 
       <a href="homepage.php" class="item">
-        <span class="icon">✏️</span>
-        <span>Hompage</span>
+        <span class="icon">🏠</span>
+        <span>Homepage</span>
+        <span class="arrow">›</span>
+      </a>
+      
+      <a href="logout.php" class="item logout">
+        <span class="icon">🚪</span>
+        <span>Logout</span>
         <span class="arrow">›</span>
       </a>
     </div>
@@ -43,7 +87,7 @@
           <img src="../photos/Bryan.png" class="avatar-mini" id="navAvatar" />
           <div>
             <p class="welcome">Welcome back,</p>
-            <p class="name">Bryan</p>
+            <p class="name" id="displayName"><?php echo htmlspecialchars($user['name']); ?></p>
           </div>
           <span class="arrow-down">▼</span>
         </div>
@@ -62,32 +106,32 @@
           <div class="field">
             <label>Your Name</label>
             <div class="input-wrapper">
-              <input type="text" value="Bryan" readonly />
-              <span class="edit">Edit</span>
+              <input type="text" id="inputName" value="<?php echo htmlspecialchars($user['name']); ?>" readonly />
+              <span class="edit" data-field="name">Edit</span>
             </div>
           </div>
 
           <div class="field">
             <label>Email</label>
             <div class="input-wrapper">
-              <input type="email" value="Bryan@gmail.com" readonly />
-              <span class="edit">Edit</span>
+              <input type="email" id="inputEmail" value="<?php echo htmlspecialchars($user['email']); ?>" readonly />
+              <span class="edit" data-field="email">Edit</span>
             </div>
           </div>
 
           <div class="field">
             <label>Phone Number</label>
             <div class="input-wrapper">
-              <input type="text" value="+62 69852845732" readonly />
-              <span class="edit">Edit</span>
+              <input type="text" id="inputPhone" value="+62 123456789" readonly />
+              <span class="edit" data-field="phone">Edit</span>
             </div>
           </div>
 
           <div class="field">
-            <label>Tentang Bryan</label>
+            <label>Tentang <?php echo htmlspecialchars($user['name']); ?></label>
             <div class="input-wrapper">
-              <textarea readonly>Bryan adalah anak SMK kelas 11 yang menyewa lapangan 12 kali di LapanganKu.</textarea>
-              <span class="edit">Edit</span>
+              <textarea id="inputAbout" readonly><?php echo htmlspecialchars($user['name']); ?> adalah member LapanganKu yang telah melakukan <?php echo $total_pemesanan; ?> kali pemesanan lapangan.</textarea>
+              <span class="edit" data-field="about">Edit</span>
             </div>
           </div>
         </div>
@@ -111,7 +155,7 @@
         <div class="section">
           <h3>Kualifikasi</h3>
           <div class="box-kualifikasi">
-            <span>Sudah 1 tahun aktif member</span>
+            <span>Sudah <?php echo $months_joined; ?> bulan aktif member</span>
             <div class="trophy">🏆</div>
           </div>
         </div>
@@ -120,11 +164,11 @@
           <h3>Olahraga Favorit</h3>
           <div class="tags">
             <span class="tag">Basket</span>
-            <span class="tag">Padel</span>
+            <span class="tag">Futsal</span>
           </div>
           <div class="tags">
-            <span class="tag">Futsal</span>
             <span class="tag">Badminton</span>
+            <span class="tag">Volleyball</span>
           </div>
         </div>
 
@@ -132,7 +176,7 @@
           <h3>Total Pemesanan</h3>
           <div class="box-stat orange">
             <div>
-              <div class="number">12</div>
+              <div class="number"><?php echo $total_pemesanan; ?></div>
               <div class="text">Booking Lapangan</div>
             </div>
             <div class="icon">⚡</div>
@@ -143,10 +187,21 @@
           <h3>Penilaian</h3>
           <div class="box-stat yellow">
             <div>
-              <div class="number">4.8</div>
-              <div class="text">dari 12x booking lapangan</div>
+              <div class="number"><?php echo $rating; ?></div>
+              <div class="text">dari <?php echo $total_pembayaran; ?>x booking lapangan</div>
             </div>
             <div class="icon">⭐</div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h3>Total Pengeluaran</h3>
+          <div class="box-stat green">
+            <div>
+              <div class="number">Rp <?php echo number_format($total_spending, 0, ',', '.'); ?></div>
+              <div class="text">Total transaksi</div>
+            </div>
+            <div class="icon">💰</div>
           </div>
         </div>
       </div>
@@ -154,6 +209,11 @@
   </div>
 
   <div id="toast"></div>
+  <script>
+    // Pass user_id ke JavaScript untuk AJAX update
+    const userId = <?php echo $user_id; ?>;
+  </script>
   <script src="../script/profile.js"></script>
 </body>
 </html>
+<?php $conn->close(); ?>

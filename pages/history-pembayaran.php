@@ -2,7 +2,17 @@
 session_start();
 require_once '../config/db-connection.php';
 
-// Query yang benar sesuai nama kolom di database
+if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true) {
+    echo "<script>
+        alert('⚠️ Silakan login terlebih dahulu!');
+        window.location.href = 'sign-in.php';
+    </script>";
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+$user_name = $_SESSION['user_name'];
+
 $query = "SELECT 
     p.id as pembayaran_id,
     p.id_pemesanan,
@@ -18,6 +28,7 @@ $query = "SELECT
     p.tanggal_pembayaran
 FROM pembayaran p
 INNER JOIN pemesanan pm ON p.id_pemesanan = pm.id_pemesanan
+WHERE pm.user_id = $user_id
 ORDER BY p.tanggal_pembayaran DESC";
 
 $result = $conn->query($query);
@@ -28,7 +39,7 @@ $result = $conn->query($query);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LapanganKu - History Pembayaran</title>
+  <title>History Pembayaran - <?php echo htmlspecialchars($user_name); ?></title>
   <link rel="stylesheet" href="../style/history-pembayaran.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -41,14 +52,14 @@ $result = $conn->query($query);
           <li><a href="homepage.php">Home</a></li>
           <li><a href="pemesanan.php">Lapangan</a></li>
           <li><a href="about-us.php">About us</a></li>
-          <li><a href="profil-page.php" class="btn-profile">Profile</a></li>
+          <li><a href="profil-page.php" class="btn-profile">👤 <?php echo htmlspecialchars($user_name); ?></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <h2 class="judul">History Pembayaran</h2>
+    <h2 class="judul">History Pembayaran - <?php echo htmlspecialchars($user_name); ?></h2>
     <div class="keterangan">
       <div class="keterangan-header">
         <span>Lapangan Olahraga</span>

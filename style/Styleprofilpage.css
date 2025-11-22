@@ -8,7 +8,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-
 .sidebar {
     width: 210px;
     height: 100vh;
@@ -51,6 +50,15 @@ body {
     color: #2d7a5f;
 }
 
+.menu .item.logout {
+    margin-top: auto;
+    color: #dc3545;
+}
+
+.menu .item.logout:hover {
+    background-color: #fee;
+}
+
 .menu .item .icon {
     font-size: 18px;
     margin-right: 10px;
@@ -66,11 +74,9 @@ body {
     font-size: 20px;
 }
 
-
 .main {
     margin-left: 210px;
 }
-
 
 .header {
     background-color: #2d7a5f;
@@ -96,6 +102,7 @@ body {
 .bell {
     font-size: 20px;
     cursor: pointer;
+    color: white;
 }
 
 .user {
@@ -134,7 +141,6 @@ body {
     color: white;
 }
 
-
 .content {
     background: linear-gradient(135deg, #2d7a5f 0%, #3a8a6f 100%);
     padding: 35px 40px;
@@ -142,7 +148,6 @@ body {
     display: flex;
     gap: 25px;
 }
-
 
 .card-left {
     flex: 1;
@@ -164,7 +169,7 @@ body {
   width: 110px;              
   height: 110px;
   border-radius: 50%;      
-  border: 4px solid #ff7675; 
+  border: 4px solid #2d7a5f; 
   object-fit: cover;       
   object-position: center;  
   box-shadow: 0 3px 10px rgba(0,0,0,0.15); 
@@ -190,7 +195,6 @@ body {
 .btn-upload:hover {
   background-color: #e0e0e0;
 }
-
 
 .form {
     margin-bottom: 25px;
@@ -232,15 +236,15 @@ body {
     position: absolute;
     right: 11px;
     top: 10px;
-    color: #6666ff;
+    color: #2d7a5f;
     font-size: 12px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .edit:hover {
-    color: #4444ff;
+    color: #1e5f3f;
 }
-
 
 .status {
     border-top: 1px solid #f0f0f0;
@@ -277,7 +281,6 @@ body {
     background-color: #e5e5e5;
     color: #666;
 }
-
 
 .card-right {
     flex: 1;
@@ -316,7 +319,6 @@ body {
     font-weight: 600;
 }
 
-
 .box-kualifikasi {
     display: flex;
     justify-content: space-between;
@@ -337,7 +339,6 @@ body {
     padding: 6px 9px;
     border-radius: 7px;
 }
-
 
 .tags {
     display: flex;
@@ -371,6 +372,10 @@ body {
     background: linear-gradient(to right, #ffd54f, #ffb300);
 }
 
+.box-stat.green {
+    background: linear-gradient(to right, #4caf50, #2e7d32);
+}
+
 .number {
     font-size: 36px;
     font-weight: 700;
@@ -384,78 +389,6 @@ body {
 .box-stat .icon {
     font-size: 45px;
     opacity: 0.4;
-}
-
-.review {
-    background-color: #fafafa;
-    padding: 16px;
-    border-radius: 9px;
-    margin-bottom: 12px;
-}
-
-.reviewer {
-    font-size: 13px;
-    font-weight: 600;
-    color: #6666ff;
-    margin-bottom: 7px;
-}
-
-.stars {
-    margin-bottom: 10px;
-}
-
-.star {
-    font-size: 16px;
-    margin-right: 2px;
-}
-
-.star.gold {
-    color: #fbbf24;
-}
-
-.star.grey {
-    color: #d0d0d0;
-}
-
-.review p {
-    font-size: 12px;
-    color: #666;
-    line-height: 1.6;
-}
-
-.link {
-    color: #ef4444;
-    font-size: 12px;
-    text-decoration: none;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 1024px) {
-    .content {
-        flex-direction: column;
-    }
-}
-
-.icon, .arrow, .arrow-down, .bell {
-  font-size: 18px;
-  vertical-align: middle;
-}
-
-.stars i {
-  color: gold;
-  font-size: 18px;
-}
-
-.stars .grey {
-  color: #bbb;
-}
-
-.menu .item.hovered {
-  background-color: #eaf6f0;
-  transition: 0.3s;
 }
 
 #toast {
@@ -473,9 +406,19 @@ body {
   z-index: 999;
 }
 
-.avatar {
-  transition: transform 0.3s, opacity 0.3s;
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
 }
-.avatar:hover {
-  transform: scale(1.05);
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+    }
+    
+    .main {
+        margin-left: 0;
+    }
 }
