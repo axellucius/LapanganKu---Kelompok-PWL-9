@@ -2,13 +2,12 @@
 session_start();
 require_once '../config/db-connection.php';
 
-// Cek login admin
 if (!isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit;
 }
 
-// Ambil statistik
+
 $total_users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'];
 $total_pemesanan = $conn->query("SELECT COUNT(*) as total FROM pemesanan")->fetch_assoc()['total'];
 $total_pembayaran = $conn->query("SELECT SUM(jumlah) as total FROM pembayaran WHERE status = 'success'")->fetch_assoc()['total'];
@@ -25,7 +24,6 @@ $pemesanan_pending = $conn->query("SELECT COUNT(*) as total FROM pemesanan WHERE
 </head>
 <body>
     <div class="admin-wrapper">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>🏀 LapanganKu</h2>
@@ -56,7 +54,6 @@ $pemesanan_pending = $conn->query("SELECT COUNT(*) as total FROM pemesanan WHERE
             </nav>
         </aside>
         
-        <!-- Main Content -->
         <main class="main-content">
             <header class="top-bar">
                 <h1>Dashboard</h1>
@@ -66,7 +63,6 @@ $pemesanan_pending = $conn->query("SELECT COUNT(*) as total FROM pemesanan WHERE
             </header>
             
             <div class="content">
-                <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card blue">
                         <div class="stat-icon">👥</div>
@@ -101,7 +97,6 @@ $pemesanan_pending = $conn->query("SELECT COUNT(*) as total FROM pemesanan WHERE
                     </div>
                 </div>
                 
-                <!-- Recent Pemesanan -->
                 <div class="card">
                     <h2>Pemesanan Terbaru</h2>
                     <div class="table-responsive">

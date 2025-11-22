@@ -52,7 +52,6 @@ function updateJamSelesaiOptions() {
     const jamSelesaiButtons = document.querySelectorAll('#jamSelesaiContainer .time');
     
     if (!jamMulai) {
-        // Disable semua jam selesai jika belum pilih jam mulai
         jamSelesaiButtons.forEach(btn => {
             btn.disabled = true;
             btn.classList.remove('active');
@@ -74,7 +73,6 @@ function updateJamSelesaiOptions() {
     });
 }
 
-// Event: Pilih olahraga
 document.querySelectorAll('.sport').forEach(b => {
     b.addEventListener('click', function() {
         document.querySelectorAll('.sport').forEach(x => x.classList.remove('active'));
@@ -84,7 +82,6 @@ document.querySelectorAll('.sport').forEach(b => {
     });
 });
 
-// Event: Pilih lapangan
 document.querySelectorAll('input[name="lapangan"]').forEach(r => {
     r.addEventListener('change', function() {
         lap = this.value;
@@ -92,30 +89,25 @@ document.querySelectorAll('input[name="lapangan"]').forEach(r => {
     });
 });
 
-// Event: Pilih tanggal
 document.getElementById('tanggal').addEventListener('change', function() {
     tgl = this.value;
     perbaruiRingkasan();
 });
 
-// Event: Pilih jam mulai
 document.querySelectorAll('#jamMulaiContainer .time').forEach(btn => {
     btn.addEventListener('click', function() {
         document.querySelectorAll('#jamMulaiContainer .time').forEach(x => x.classList.remove('active'));
         this.classList.add('active');
         jamMulai = this.dataset.time;
         
-        // Reset jam selesai
         jamSelesai = '';
         document.querySelectorAll('#jamSelesaiContainer .time').forEach(x => x.classList.remove('active'));
         
-        // Update opsi jam selesai
         updateJamSelesaiOptions();
         perbaruiRingkasan();
     });
 });
 
-// Event: Pilih jam selesai
 document.querySelectorAll('#jamSelesaiContainer .time').forEach(btn => {
     btn.addEventListener('click', function() {
         if (this.disabled) {
@@ -130,9 +122,7 @@ document.querySelectorAll('#jamSelesaiContainer .time').forEach(btn => {
     });
 });
 
-// Event: Lanjutkan ke pembayaran
 document.getElementById('btnLanjutkan').addEventListener('click', async function() {
-    // Validasi
     if (!tgl) {
         alert('⚠️ Pilih tanggal terlebih dahulu!');
         return;
@@ -152,7 +142,6 @@ document.getElementById('btnLanjutkan').addEventListener('click', async function
         return;
     }
     
-    // Tampilkan loading
     const btn = this;
     const originalText = btn.textContent;
     btn.textContent = '⏳ Memproses...';
@@ -179,7 +168,6 @@ document.getElementById('btnLanjutkan').addEventListener('click', async function
         if (result.success) {
             console.log('✅ Pemesanan berhasil disimpan!');
             console.log('Data:', result.data);
-            // Redirect ke halaman pembayaran
             window.location.href = 'pembayaran.php';
         } else {
             alert('❌ ' + (result.message || 'Gagal menyimpan pemesanan. Silakan coba lagi.'));
@@ -199,7 +187,6 @@ document.getElementById('btnLanjutkan').addEventListener('click', async function
     }
 });
 
-// Inisialisasi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
     buatTanggal();
     updateJamSelesaiOptions();

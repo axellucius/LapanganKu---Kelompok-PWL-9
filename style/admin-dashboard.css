@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
     width: 260px;
     background: linear-gradient(180deg, #2A8A56 0%, #1e6d43 100%);
@@ -80,7 +79,6 @@ body {
     background: rgba(255, 0, 0, 0.2);
 }
 
-/* Main Content */
 .main-content {
     margin-left: 260px;
     flex: 1;
@@ -112,7 +110,6 @@ body {
     padding: 40px;
 }
 
-/* Statistics Cards */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -162,7 +159,6 @@ body {
     opacity: 0.9;
 }
 
-/* Card */
 .card {
     background: white;
     border-radius: 15px;
@@ -176,7 +172,6 @@ body {
     color: #2A8A56;
 }
 
-/* Table */
 .table-responsive {
     overflow-x: auto;
 }
@@ -204,7 +199,6 @@ tr:hover {
     background: #f8f9fa;
 }
 
-/* Badge */
 .badge {
     padding: 5px 12px;
     border-radius: 20px;
@@ -227,7 +221,6 @@ tr:hover {
     color: #721c24;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .sidebar {
         width: 220px;

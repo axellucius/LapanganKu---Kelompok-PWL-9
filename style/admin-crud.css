@@ -241,7 +241,6 @@
     border-color: #2A8A56;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .card-header {
         flex-direction: column;

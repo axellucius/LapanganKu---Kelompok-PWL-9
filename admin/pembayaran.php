@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-// Get all pembayaran with pemesanan details
 $query = "SELECT pb.*, pm.olahraga, pm.lapangan, pm.tanggal, pm.jam_mulai, pm.jam_selesai 
           FROM pembayaran pb 
           JOIN pemesanan pm ON pb.id_pemesanan = pm.id_pemesanan 

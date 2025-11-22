@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-// Handle Delete
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     $conn->query("DELETE FROM pemesanan WHERE id_pemesanan = $id");
@@ -15,7 +14,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Handle Status Update
 if (isset($_GET['update_status'])) {
     $id = intval($_GET['update_status']);
     $status = $_GET['status'];
@@ -24,7 +22,6 @@ if (isset($_GET['update_status'])) {
     exit;
 }
 
-// Get all pemesanan with user info
 $query = "SELECT p.*, u.name as user_name, u.email as user_email 
           FROM pemesanan p 
           LEFT JOIN users u ON p.user_id = u.id 

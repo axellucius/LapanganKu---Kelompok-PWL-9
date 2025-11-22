@@ -2,7 +2,6 @@
 session_start();
 require_once '../config/db-connection.php';
 
-// Cek apakah ada data pemesanan di session
 if (!isset($_SESSION['id_pemesanan']) || !isset($_SESSION['detail_pemesanan'])) {
     echo "<script>
         alert('⚠️ Silakan lakukan pemesanan terlebih dahulu!');
@@ -14,12 +13,10 @@ if (!isset($_SESSION['id_pemesanan']) || !isset($_SESSION['detail_pemesanan'])) 
 $detail = $_SESSION['detail_pemesanan'];
 $id_pemesanan = $_SESSION['id_pemesanan'];
 
-// Hitung durasi (dalam jam)
 $jam_mulai_int = (int)str_replace('.00', '', $detail['jam_mulai']);
 $jam_selesai_int = (int)str_replace('.00', '', $detail['jam_selesai']);
 $durasi = $jam_selesai_int - $jam_mulai_int;
 
-// Hitung harga berdasarkan olahraga dan durasi
 $harga_per_jam = 0;
 switch($detail['olahraga']) {
     case 'Basket':
