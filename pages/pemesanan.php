@@ -1,35 +1,5 @@
 <?php
-require_once '../config/db-connection.php';
 session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_user = $_SESSION['id_user'] ?? 1;
-    $sport = $_POST['sport'] ?? '';
-    $lapangan = $_POST['lapangan'] ?? '';
-    $tanggal = $_POST['tanggal'] ?? '';
-    $jam_mulai = str_replace(".", ":", $_POST['jam_mulai']);
-    $jam_selesai = str_replace(".", ":", $_POST['jam_selesai']);
-    if (strlen($jam_mulai) === 5) $jam_mulai .= ":00";
-    if (strlen($jam_selesai) === 5) $jam_selesai .= ":00";
-    $status = "Menunggu Pembayaran";
-    $created_at = date("Y-m-d H:i:s");
-
-    if ($sport == "Basket") $id_lapangan = 1;
-    elseif ($sport == "Futsal") $id_lapangan = 2;
-    else $id_lapangan = 3;
-
-    $stmt = $conn->prepare("INSERT INTO pemesanan (id_user, id_lapangan, tanggal, jam_mulai, jam_selesai, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iisssss", $id_user, $id_lapangan, $tanggal, $jam_mulai, $jam_selesai, $status, $created_at);
-
-    if ($stmt->execute()) {
-        echo "<script>alert('Pemesanan berhasil!'); window.location.href='pembayaran.php';</script>";
-    } else {
-        echo "<script>alert('Gagal menyimpan data');</script>";
-    }
-
-    $stmt->close();
-    $conn->close();
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -41,92 +11,146 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+  
+  <header>
     <div class="container header-inner">
-        <div class="logo">LapanganKu</div>
-        <nav>
-            <ul>
-                <li><a href="../pages/homepage.php">Home</a></li>
-                <li><a href="../pages/pemesanan.php">Lapangan</a></li>
-                <li><a href="../pages/about-us.php">About us</a></li>
-                <li><a href="../pages/profil-page.php" class="btn-profile">Profile</a></li>
-            </ul>
-        </nav>
+      <div class="logo">LapanganKu</div>
+      <nav>
+        <ul>
+          <li><a href="homepage.php">Home</a></li>
+          <li><a href="pemesanan.php">Lapangan</a></li>
+          <li><a href="about-us.php">About us</a></li>
+          <li><a href="profil-page.php" class="btn-profile">Profile</a></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
 
-<div class="main">
-    <div class="top-section">
-        <h2 class="title">Pemesanan Lapangan</h2>
-        <p class="subtitle">Pilih olahraga favoritmu dan pesan lapangan dengan mudah!</p>
-        <div class="promo">Promo Hari ini : Diskon 10%</div>
-
-        <div class="sports">
-            <button type="button" class="sport active" data-sport="Basket">🏀 Basket</button>
-            <button type="button" class="sport" data-sport="Futsal">⚽ Futsal</button>
-            <button type="button" class="sport" data-sport="Badminton">🏸 Badminton</button>
-        </div>
-    </div>
-
-    <div class="bottom-section">
-        <form class="form-section" method="POST" action="">
+    <div class="main">
+        
+        <div class="top-section">
             <h2 class="title">Pemesanan Lapangan</h2>
-            <p class="info">Pilih tanggal, lapangan, dan jam bermain (09.00 - 23.00)</p>
-
-            <div class="field">
-                <label class="label">Tanggal Bermain</label>
-                <input type="date" name="tanggal" id="tanggal" class="select" required>
+            <p class="subtitle">Pilih olahraga favoritmu dan pesan lapangan dengan mudah!</p>
+            
+            <div class="promo">
+                Promo Hari ini : Diskon 10%
             </div>
 
-            <div class="field">
-                <label class="label">Pilih Lapangan</label>
-                <div class="radios">
-                    <label class="radio">
-                        <input type="radio" name="lapangan" value="Lapangan 1" checked>
-                        <span>Lapangan 1</span>
-                    </label>
-                    <label class="radio">
-                        <input type="radio" name="lapangan" value="Lapangan 2">
-                        <span>Lapangan 2</span>
-                    </label>
+            <div class="sports">
+                <button class="sport active" data-sport="Basket">
+                    <div class="icon">🏀</div>
+                    <div class="name">Basket</div>
+                </button>
+                <button class="sport" data-sport="Futsal">
+                    <div class="icon">⚽</div>
+                    <div class="name">Futsal</div>
+                </button>
+                <button class="sport" data-sport="Badminton">
+                    <div class="icon">🏸</div>
+                    <div class="name">Badminton</div>
+                </button>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            
+            <div class="form-section">
+                <h2 class="title">Pemesanan Lapangan</h2>
+                <p class="info">Pilih tanggal, lapangan, dan jam bermain (09.00 - 23.00)</p>
+
+                <div class="field">
+                    <label class="label">Tanggal Bermain</label>
+                    <select id="tanggal" class="select">
+                        <option value="">Pilih tanggal</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label class="label">Pilih Lapangan</label>
+                    <div class="radios">
+                        <label class="radio">
+                            <input type="radio" name="lapangan" value="Lapangan 1" checked>
+                            <span>Lapangan 1</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="lapangan" value="Lapangan 2">
+                            <span>Lapangan 2</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Jam Mulai</label>
+                    <div class="times" id="jamMulaiContainer">
+                        <button class="time" data-time="09.00">09.00</button>
+                        <button class="time" data-time="10.00">10.00</button>
+                        <button class="time" data-time="11.00">11.00</button>
+                        <button class="time" data-time="12.00">12.00</button>
+                        <button class="time" data-time="13.00">13.00</button>
+                        <button class="time" data-time="14.00">14.00</button>
+                        <button class="time" data-time="15.00">15.00</button>
+                        <button class="time" data-time="16.00">16.00</button>
+                        <button class="time" data-time="17.00">17.00</button>
+                        <button class="time" data-time="18.00">18.00</button>
+                        <button class="time" data-time="19.00">19.00</button>
+                        <button class="time" data-time="20.00">20.00</button>
+                        <button class="time" data-time="21.00">21.00</button>
+                        <button class="time" data-time="22.00">22.00</button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Jam Selesai</label>
+                    <div class="times" id="jamSelesaiContainer">
+                        <button class="time" data-time="10.00" disabled>10.00</button>
+                        <button class="time" data-time="11.00" disabled>11.00</button>
+                        <button class="time" data-time="12.00" disabled>12.00</button>
+                        <button class="time" data-time="13.00" disabled>13.00</button>
+                        <button class="time" data-time="14.00" disabled>14.00</button>
+                        <button class="time" data-time="15.00" disabled>15.00</button>
+                        <button class="time" data-time="16.00" disabled>16.00</button>
+                        <button class="time" data-time="17.00" disabled>17.00</button>
+                        <button class="time" data-time="18.00" disabled>18.00</button>
+                        <button class="time" data-time="19.00" disabled>19.00</button>
+                        <button class="time" data-time="20.00" disabled>20.00</button>
+                        <button class="time" data-time="21.00" disabled>21.00</button>
+                        <button class="time" data-time="22.00" disabled>22.00</button>
+                        <button class="time" data-time="23.00" disabled>23.00</button>
+                    </div>
                 </div>
             </div>
-
-            <div class="field">
-                <label class="label">Jam Mulai</label>
-                <select name="jam_mulai" id="jam_mulai" class="select" required></select>
-            </div>
-
-            <div class="field">
-                <label class="label">Jam Selesai</label>
-                <select name="jam_selesai" id="jam_selesai" class="select" required></select>
-            </div>
-
-            <input type="hidden" name="sport" id="inputSport" value="Basket">
 
             <div class="summary-section">
                 <div class="summary">
                     <h3 class="summary-title">Ringkasan Pesanan</h3>
+                    
                     <div class="summary-row">
                         <div class="summary-label">Lapangan:</div>
-                        <div class="summary-value" id="s-sport">Basket</div> -
+                        <div class="summary-value" id="s-sport">Basket -</div>
                         <div class="summary-value" id="s-lapangan">Lapangan 1</div>
                     </div>
+
                     <div class="summary-row">
                         <div class="summary-label">Tanggal:</div>
                         <div class="summary-value" id="s-tanggal">-</div>
                     </div>
+
                     <div class="summary-row">
                         <div class="summary-label">Jam:</div>
                         <div class="summary-value" id="s-jam">-</div>
                     </div>
-                    <button type="submit" class="btn" name="lanjut_pembayaran">Lanjutkan Pembayaran</button>
+
+                    <div class="summary-row">
+                        <div class="summary-label">Durasi:</div>
+                        <div class="summary-value" id="s-durasi">-</div>
+                    </div>
+
+                    <button class="btn" id="btnLanjutkan">Lanjutkan Pembayaran</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<script src="../script/pemesanan.js?v=3"></script>
+    <script src="../script/pemesanan.js"></script>
 </body>
 </html>

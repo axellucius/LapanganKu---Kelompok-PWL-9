@@ -125,207 +125,237 @@ nav a:hover {
 	box-shadow: 0 12px 40px rgba(255, 193, 7, 0.8);
 }
 
+main {
+	padding: 40px 20px;
+	max-width: 1400px;
+	margin: 0 auto;
+}
 
 .judul {
-  margin: 20px 40px;
+	text-align: center;
+	font-size: 2.5rem;
+	color: #2A8A56;
+	margin-bottom: 40px;
+	font-weight: 900;
 }
 
 .keterangan {
-  margin: 20px 40px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  height: 350px;
+	background: white;
+	border-radius: 20px;
+	padding: 30px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .keterangan-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  width: 1390px;
-  font-weight: bold;
-  position: relative;
-  left: 30px;
-  top: 5px;
-  height: 20px;
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	padding: 20px;
+	background: linear-gradient(135deg, #2A8A56 0%, #1e6d43 100%);
+	color: white;
+	border-radius: 15px;
+	font-weight: 700;
+	margin-bottom: 20px;
+	font-size: 1.1rem;
 }
 
-.keterangan-headerr p{
-  position: relative;
-  left: 30px;
-  bottom: 16px;
-}
 .card-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 15px;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  position: relative;
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	padding: 20px;
+	align-items: center;
+	border-bottom: 2px solid #f0f0f0;
+	transition: all 0.3s ease;
+	border-radius: 10px;
+	margin-bottom: 10px;
 }
 
-.card-item:last-child {
-  border-bottom: none;
+.card-item:hover {
+	background: #f8f9fa;
+	transform: translateX(5px);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .lapangan {
-  display: flex;
-  gap: 15px;
+	display: flex;
+	gap: 20px;
+	align-items: center;
 }
 
 .lapangan img {
-  width: 120px;
-  height: 100px;
-  border-radius: 5px;
-  object-fit: cover;
-  position: relative;
-  left: 20px;
-  top: 20px;
+	width: 120px;
+	height: 100px;
+	border-radius: 12px;
+	object-fit: cover;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.lapangan2 img {
-  width: 120px;
-  height: 100px;
-  border-radius: 5px;
-  object-fit: cover;
-  position: relative;
-  left: 20px;
-  bottom: 90px;
-}
-.lapangan-info h3{
-  position: relative;
-  left: 20px;
-}
-
-.lapangan-info2 h3{
-  position: relative;
-  left: 157px;
-  bottom:210px;
-}
-.lapangan-info2 p {
-  position: relative;
-  left: 185px;
-  bottom: 210px;
+.lapangan-info h3 {
+	font-size: 1.1rem;
+	color: #2A8A56;
+	margin-bottom: 5px;
 }
 
 .lapangan-info p {
-  position: relative;
-  left: 50px;
+	font-size: 0.9rem;
+	color: #666;
+	margin: 3px 0;
 }
 
-.metode{
-  position: relative;
-  left: 80px;
+.metode {
+	font-weight: 600;
+	color: #333;
+	text-align: center;
 }
-.gambartgl img{
-  width: 40px;
-  position: relative;
-  left: 160px;
-  bottom: 96px;
+
+.harga {
+	font-weight: 700;
+	font-size: 1.1rem;
+	color: #2A8A56;
+	text-align: center;
 }
-.gambarwkt img{
-  width: 25px;
-  position: relative;
-  left: 167px;
-  bottom: 99px;
-}
-.gambarbca img{
-  width: 30px;
-  position: relative;
-  bottom: 165px;
-  left: 620px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-.harga{
-  position: relative;
-  left: 30px;
+
+.status {
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-weight: 700;
+	text-align: center;
+	font-size: 0.9rem;
 }
 
 .status.success {
-  color: green;
-  font-weight: bold;
-  position: relative;
-  left: 25px;
+	background: #d4edda;
+	color: #155724;
 }
 
-.gambartgl2 img{
-  width: 40px;
-  position: relative;
-  left: 200px;
-  bottom: 116px;
-}
-.gambarwkt2 img{
-  width: 25px;
-  position: relative;
-  left: 206px;
-  bottom: 118px;
-}
-.gambarbca2 img{
-  width: 30px;
-  position: relative;
-  bottom: 178px;
-  left: 662px;
-  border: 1px solid black;
-  border-radius: 5px;
+.status.waiting {
+	background: #fff3cd;
+	color: #856404;
 }
 
-.metode2{
-  position: relative;
-  left: 81px;
-  bottom: 153px;
-}
-.harga2{
-  position: relative;
-  left: 30px;
-  bottom: 153px;
+.status.failed {
+	background: #f8d7da;
+	color: #721c24;
 }
 
-.status.waiting2 {
-  color: orange;
-  font-weight: bold;
-  position: relative;
-  left: 25px;
-  bottom: 153px;
+/* Empty State */
+.empty-state {
+	text-align: center;
+	padding: 80px 20px;
+	color: #666;
 }
 
+.empty-state h3 {
+	font-size: 1.8rem;
+	color: #333;
+	margin-bottom: 15px;
+}
+
+.empty-state p {
+	font-size: 1.1rem;
+	margin-bottom: 30px;
+}
+
+.btn-pesan {
+	display: inline-block;
+	padding: 14px 32px;
+	background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+	color: white;
+	text-decoration: none;
+	border-radius: 12px;
+	font-weight: 700;
+	font-size: 1.1rem;
+	transition: all 0.3s ease;
+	box-shadow: 0 8px 25px rgba(0, 200, 83, 0.4);
+}
+
+.btn-pesan:hover {
+	transform: translateY(-3px) scale(1.05);
+	box-shadow: 0 12px 35px rgba(0, 200, 83, 0.6);
+}
+
+/* Footer */
 footer {
-  background: #2d6a4f;
-  color: white;
-  padding: 30px 40px;
-  margin-top: 50px;
-  height: 210px;
+	background: linear-gradient(135deg, #2A8A56 0%, #1e6d43 100%);
+	color: white;
+	padding: 50px 20px;
+	margin-top: 60px;
 }
 
 .footer-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 40px;
 }
 
-.footer-box h3, .footer-box h4 {
-  margin-bottom: 15px;
-}
-.Email{
-  position: relative;
-  bottom: 6px;
-}
-.Telpon{
-  position:relative;
-  bottom: 10px
+.footer-box h3,
+.footer-box h4 {
+	margin-bottom: 20px;
+	font-size: 1.3rem;
 }
 
+.footer-box p {
+	line-height: 1.8;
+	margin-bottom: 15px;
+}
 
 .footer-box ul {
-  list-style: none;
-  padding: 0;
+	list-style: none;
 }
 
 .footer-box ul li {
-  margin-bottom: 8px;
+	margin-bottom: 10px;
+}
+
+.footer-box ul li a {
+	color: rgba(255, 255, 255, 0.8);
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.footer-box ul li a:hover {
+	color: white;
+	transform: translateX(5px);
+	display: inline-block;
 }
 
 .lokasi {
-  border: 1px solid white;
-  height: 120px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	min-height: 200px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+	.keterangan-header,
+	.card-item {
+		grid-template-columns: 1fr;
+		gap: 15px;
+		text-align: center;
+	}
+	
+	.lapangan {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+@media (max-width: 768px) {
+	.judul {
+		font-size: 2rem;
+	}
+	
+	.keterangan {
+		padding: 20px 15px;
+	}
+	
+	.lapangan img {
+		width: 100px;
+		height: 80px;
+	}
+	
+	.footer-container {
+		grid-template-columns: 1fr;
+	}
 }

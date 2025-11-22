@@ -1,65 +1,212 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const sportButtons = document.querySelectorAll(".sport");
-    const tanggalInput = document.getElementById("tanggal");
-    const lapanganRadios = document.querySelectorAll("input[name='lapangan']");
-    const jamMulaiSelect = document.getElementById("jam_mulai");
-    const jamSelesaiSelect = document.getElementById("jam_selesai");
-    const inputSport = document.getElementById("inputSport");
-    const sSport = document.getElementById("s-sport");
-    const sLapangan = document.getElementById("s-lapangan");
-    const sTanggal = document.getElementById("s-tanggal");
-    const sJam = document.getElementById("s-jam");
+let olahraga = 'Basket';
+let lap = 'Lapangan 1';
+let tgl = '';
+let jamMulai = '';
+let jamSelesai = '';
 
-    const jamArray = ["09.00","10.00","11.00","12.00","13.00","14.00","15.00","16.00","17.00","18.00","19.00","20.00","21.00","22.00","23.00"];
-
-    jamArray.forEach(j => {
-        const opt1 = document.createElement("option");
-        opt1.value = j;
-        opt1.textContent = j;
-        jamMulaiSelect.appendChild(opt1);
-    });
-
-    function updateJamSelesai() {
-        jamSelesaiSelect.innerHTML = "<option value=''>Pilih jam selesai</option>";
-        const startIndex = jamArray.indexOf(jamMulaiSelect.value);
-        if (startIndex !== -1) {
-            for (let i = startIndex + 1; i < jamArray.length; i++) {
-                const opt = document.createElement("option");
-                opt.value = jamArray[i];
-                opt.textContent = jamArray[i];
-                jamSelesaiSelect.appendChild(opt);
-            }
-        }
+function buatTanggal() {
+    const s = document.getElementById('tanggal');
+    const bln = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+    
+    for (let i = 0; i < 30; i++) {
+        const d = new Date();
+        d.setDate(d.getDate() + i);
+        
+        const hari = d.getDate();
+        const bulan = bln[d.getMonth()];
+        const tahun = d.getFullYear();
+        
+        const opt = document.createElement('option');
+        opt.value = `${hari} ${bulan} ${tahun}`;
+        opt.textContent = opt.value;
+        s.appendChild(opt);
     }
+}
 
-    jamMulaiSelect.addEventListener("change", updateJamSelesai);
+function hitungDurasi() {
+    if (!jamMulai || !jamSelesai) return 0;
+    const mulai = parseFloat(jamMulai);
+    const selesai = parseFloat(jamSelesai);
+    return selesai - mulai;
+}
 
-    sportButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            sportButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            inputSport.value = btn.dataset.sport;
-            sSport.textContent = btn.dataset.sport;
+function perbaruiRingkasan() {
+    document.getElementById('s-sport').textContent = olahraga + ' -';
+    document.getElementById('s-lapangan').textContent = lap;
+    document.getElementById('s-tanggal').textContent = tgl || '-';
+    
+    if (jamMulai && jamSelesai) {
+        document.getElementById('s-jam').textContent = `${jamMulai} - ${jamSelesai}`;
+        const durasi = hitungDurasi();
+        document.getElementById('s-durasi').textContent = durasi > 0 ? `${durasi} jam` : '-';
+    } else if (jamMulai) {
+        document.getElementById('s-jam').textContent = `${jamMulai} - ...`;
+        document.getElementById('s-durasi').textContent = '-';
+    } else {
+        document.getElementById('s-jam').textContent = '-';
+        document.getElementById('s-durasi').textContent = '-';
+    }
+}
+
+function updateJamSelesaiOptions() {
+    const jamSelesaiButtons = document.querySelectorAll('#jamSelesaiContainer .time');
+    
+    if (!jamMulai) {
+        // Disable semua jam selesai jika belum pilih jam mulai
+        jamSelesaiButtons.forEach(btn => {
+            btn.disabled = true;
+            btn.classList.remove('active');
         });
-    });
-
-    lapanganRadios.forEach(r => {
-        r.addEventListener("change", () => {
-            sLapangan.textContent = r.value;
-        });
-    });
-
-    tanggalInput.addEventListener("change", () => {
-        sTanggal.textContent = tanggalInput.value;
-    });
-
-    jamMulaiSelect.addEventListener("change", () => {
-        if (jamSelesaiSelect.value) {
-            sJam.textContent = jamMulaiSelect.value + " - " + jamSelesaiSelect.value;
+        return;
+    }
+    
+    const jamMulaiInt = parseFloat(jamMulai);
+    
+    jamSelesaiButtons.forEach(btn => {
+        const jamValue = parseFloat(btn.dataset.time);
+        
+        if (jamValue > jamMulaiInt) {
+            btn.disabled = false;
+        } else {
+            btn.disabled = true;
+            btn.classList.remove('active');
         }
     });
+}
 
-    jamSelesaiSelect.addEventListener("change", () => {
-        sJam.textContent = jamMulaiSelect.value + " - " + jamSelesaiSelect.value;
+// Event: Pilih olahraga
+document.querySelectorAll('.sport').forEach(b => {
+    b.addEventListener('click', function() {
+        document.querySelectorAll('.sport').forEach(x => x.classList.remove('active'));
+        this.classList.add('active');
+        olahraga = this.dataset.sport;
+        perbaruiRingkasan();
     });
 });
+
+// Event: Pilih lapangan
+document.querySelectorAll('input[name="lapangan"]').forEach(r => {
+    r.addEventListener('change', function() {
+        lap = this.value;
+        perbaruiRingkasan();
+    });
+});
+
+// Event: Pilih tanggal
+document.getElementById('tanggal').addEventListener('change', function() {
+    tgl = this.value;
+    perbaruiRingkasan();
+});
+
+// Event: Pilih jam mulai
+document.querySelectorAll('#jamMulaiContainer .time').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('#jamMulaiContainer .time').forEach(x => x.classList.remove('active'));
+        this.classList.add('active');
+        jamMulai = this.dataset.time;
+        
+        // Reset jam selesai
+        jamSelesai = '';
+        document.querySelectorAll('#jamSelesaiContainer .time').forEach(x => x.classList.remove('active'));
+        
+        // Update opsi jam selesai
+        updateJamSelesaiOptions();
+        perbaruiRingkasan();
+    });
+});
+
+// Event: Pilih jam selesai
+document.querySelectorAll('#jamSelesaiContainer .time').forEach(btn => {
+    btn.addEventListener('click', function() {
+        if (this.disabled) {
+            alert('⚠️ Pilih jam mulai terlebih dahulu!');
+            return;
+        }
+        
+        document.querySelectorAll('#jamSelesaiContainer .time').forEach(x => x.classList.remove('active'));
+        this.classList.add('active');
+        jamSelesai = this.dataset.time;
+        perbaruiRingkasan();
+    });
+});
+
+// Event: Lanjutkan ke pembayaran
+document.getElementById('btnLanjutkan').addEventListener('click', async function() {
+    // Validasi
+    if (!tgl) {
+        alert('⚠️ Pilih tanggal terlebih dahulu!');
+        return;
+    }
+    if (!jamMulai) {
+        alert('⚠️ Pilih jam mulai terlebih dahulu!');
+        return;
+    }
+    if (!jamSelesai) {
+        alert('⚠️ Pilih jam selesai terlebih dahulu!');
+        return;
+    }
+    
+    const durasi = hitungDurasi();
+    if (durasi <= 0) {
+        alert('⚠️ Jam selesai harus lebih besar dari jam mulai!');
+        return;
+    }
+    
+    // Tampilkan loading
+    const btn = this;
+    const originalText = btn.textContent;
+    btn.textContent = '⏳ Memproses...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'wait';
+    
+    const formData = new FormData();
+    formData.append('olahraga', olahraga);
+    formData.append('lapangan', lap);
+    formData.append('tanggal', tgl);
+    formData.append('jam_mulai', jamMulai);
+    formData.append('jam_selesai', jamSelesai);
+    
+    try {
+        const response = await fetch('../database/simpan-pemesanan.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        console.log('Response dari database:', result);
+        
+        if (result.success) {
+            console.log('✅ Pemesanan berhasil disimpan!');
+            console.log('Data:', result.data);
+            // Redirect ke halaman pembayaran
+            window.location.href = 'pembayaran.php';
+        } else {
+            alert('❌ ' + (result.message || 'Gagal menyimpan pemesanan. Silakan coba lagi.'));
+            console.error('Error:', result);
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('❌ Terjadi kesalahan koneksi. Silakan coba lagi.\n\nDetail: ' + error.message);
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+    }
+});
+
+// Inisialisasi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    buatTanggal();
+    updateJamSelesaiOptions();
+    perbaruiRingkasan();
+    console.log('✅ Pemesanan.js loaded successfully!');
+});
+
+buatTanggal();
+updateJamSelesaiOptions();
+perbaruiRingkasan();
